@@ -14,8 +14,16 @@ const initScrollMagic = () => {
     alpha: 0.7,
   });
 
+  const lightOff = TweenMax.to('.light-off', 0.5, {
+    alpha: 0,
+  });
+
+  const lightOn = TweenMax.to('.light-on', 0.5, {
+    alpha: 1,
+  });
+
   const mainLogoText1 = TweenMax.to('.mainLogoText1', 0.5, {
-    color: '#892C2C'
+    color: '#892C2C',
   });
 
   const mainLogoText2 = TweenMax.staggerFromTo(
@@ -29,7 +37,7 @@ const initScrollMagic = () => {
       backgroundColor: '#FF8282',
       scale: 1.2,
       rotation: 360,
-      alpha: 0.9
+      alpha: 0.9,
     },
     0.3
   );
@@ -50,7 +58,7 @@ const initScrollMagic = () => {
     duration: '80%',
   })
     .setPin('.mainLogo')
-    .setTween([mainLogoText1, mainLogoText2])
+    .setTween([lightOff, lightOn, mainLogoText1, mainLogoText2])
     .addTo(controller)
     .addIndicators({
       name: 'mainLogo',
