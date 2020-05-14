@@ -8,9 +8,62 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "Balonku";
+  src: url("public/font/Balonku.eot?#iefix") format("embedded-opentype"),
+  url("public/font/Balonku.ttf") format("truetype"),
+  url("public/font/Balonku.otf") format("opentype"),
+  url("public/font/Balonku.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Letters for Learners";
+  src: url("public/font/Letters for Learners.eot?#iefix") format("embedded-opentype"),
+  url("public/font/Letters for Learners.ttf") format("truetype"),
+  url("public/font/Letters for Learners.otf") format("opentype"),
+  url("public/font/Letters for Learners.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: rgba(255, 240, 230, 1);
+  height: 200vh;
+
 }
 
+div {
+  box-sizing: border-box;
+}
+
+.page {
+  max-width: 1920px;
+  box-sizing: border-box;
+
+  .header {
+    width: 100%;
+    max-width: 1920px;
+    top: 0;
+    margin-top: 45px;
+    //padding: 0px 60px;
+    padding: 0px 10px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .leftText {
+      font-family: Balonku;
+      font-size: 28px;
+    }
+
+    .rightText {
+      font-family: "Letters for Learners";
+      font-size: 22px;
+    }
+  }
+}
