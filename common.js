@@ -73,7 +73,7 @@ const initScrollMagic = () => {
     // triggerHook: 0,
     triggerElement: ".intro",
     offset: '350%',
-    duration: '20%',
+    duration: '30%',
   })
       .setTween(section1)
       .addTo(controller)
