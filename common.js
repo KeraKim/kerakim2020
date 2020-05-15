@@ -48,6 +48,10 @@ const initScrollMagic = () => {
     0.3
   );
 
+  const mainLogo = TweenMax.to('.mainLogo', 0.5, {
+    x: -200,
+  });
+
   new ScrollMagic.Scene({
     triggerHook: 0,
     // triggerElement: "#trigger1",
@@ -61,10 +65,10 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     triggerHook: 0,
-    duration: '80%',
+    duration: '90%',
   })
     .setPin('.mainLogo')
-    .setTween([lightOff, lightOn, mainLogoText1, mainLogoText2])
+    .setTween([lightOff, lightOn, mainLogoText1, mainLogoText2, mainLogo])
     .addTo(controller)
     .addIndicators({
       name: 'mainLogo',
