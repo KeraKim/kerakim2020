@@ -143,11 +143,11 @@ const initScrollMagic = () => {
   })
     .setTween(profileImage)
     .addTo(controller)
-    .addIndicators({
-      name: 'section-2',
-    });
 };
 
 $(document).ready(() => {
+
+  $('.year').text(new Date().getFullYear() - 2016)
+
   initScrollMagic();
 });
