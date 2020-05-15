@@ -39,7 +39,7 @@ const initScrollMagic = () => {
       scale: 0.85,
     },
     {
-      x: -280,
+      x: -180,
       backgroundColor: 'rgba(255, 222, 222)',
       scale: 1.2,
       rotation: 360,
