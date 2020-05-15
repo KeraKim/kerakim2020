@@ -9,6 +9,16 @@
 }
 
 @font-face {
+  font-family: "HousttelySignature";
+  src: url("public/font/HousttelySignature.eot?#iefix") format("embedded-opentype"),
+  url("public/font/HousttelySignature.ttf") format("truetype"),
+  url("public/font/HousttelySignature.otf") format("opentype"),
+  url("public/font/HousttelySignature.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
   font-family: "Letters for Learners";
   src: url("public/font/Letters for Learners.eot?#iefix") format("embedded-opentype"),
   url("public/font/Letters for Learners.ttf") format("truetype"),
@@ -48,12 +58,34 @@ img {
     padding: 0px 10px;
     position: fixed;
     display: flex;
-    align-items: center;
+    //align-items: center;
     justify-content: space-between;
 
-    .leftText {
-      font-family: "Letters for Learners";
-      font-size: 28px;
+    .leftTextWrap {
+      position: relative;
+
+      .leftText1 {
+        width: 220px;
+        line-height: 60px;
+        font-family: "Letters for Learners";
+        font-size: 28px;
+        left: 0;
+        top: 0;
+        position: absolute;
+      }
+
+      .leftText2 {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        font-family: HousttelySignature;
+        color: #a8adb4;
+        border: 2px solid #a8adb4;
+        left: -40px;
+        top: 0;
+        position: absolute;
+        opacity: 0;
+      }
     }
 
     .rightText {
@@ -72,54 +104,67 @@ img {
       & > div {
         width: 1000px;
         margin: 0 auto;
-        display: flex;
-        align-items: flex-end;
 
-        .imageWrap {
-          width: 100px;
-          height: 115px;
-          transform: rotate(-35deg);
-          margin-bottom: 100px;
-          margin-right: -70px;
-          position: relative;
+        & > div:nth-child(1) {
+          display: flex;
 
-          .light-on {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            opacity: 0;
+          .imageWrap {
+            width: 100px;
+            height: 115px;
+            transform: rotate(-35deg);
+            position: relative;
+
+            .light-on {
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              opacity: 0;
+            }
+
+            .light-off {
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              opacity: 1;
+            }
           }
 
-          .light-off {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            opacity: 1;
+          .dummy {
+            width: calc(100% - 150px);
           }
         }
 
-        .textWrap {
+        & > div:nth-child(2) {
           display: flex;
-          align-items: flex-end;
 
-          .mainLogoText1 {
-            font-family: FineSpring;
-            font-size: 100px;
+          .dummy {
+            width: 25px;
           }
 
-          & > div:nth-child(2) {
+          .textWrap {
             display: flex;
-            align-items: center;
-            margin-left: 300px;
+            align-items: flex-end;
 
-            .mainLogoText2 {
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              line-height: 50px;
-              text-align: center;
-              margin-right: 20px;
-              font-size: 20px;
+            .mainLogoText1 {
+              font-family: FineSpring;
+              font-size: 100px;
+              line-height: 120px;
+            }
+
+            & > div:nth-child(2) {
+              display: flex;
+              align-items: center;
+              margin-left: 300px;
+
+              .mainLogoText2 {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                line-height: 50px;
+                text-align: center;
+                margin-right: 20px;
+                font-size: 20px;
+              }
             }
           }
         }

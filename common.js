@@ -1,9 +1,14 @@
 const initScrollMagic = () => {
   const controller = new ScrollMagic.Controller();
 
-  const headerLeftText = TweenMax.to('.leftText', 0.5, {
+  const headerLeftText1 = TweenMax.to('.leftText1', 0.5, {
     x: '-100%',
     alpha: 0,
+  });
+
+  const headerLeftText2 = TweenMax.to('.leftText2', 0.5, {
+    x: '100%',
+    alpha: 1,
   });
 
   const headerRightText = TweenMax.to('.rightText', 0.5, {
@@ -12,6 +17,7 @@ const initScrollMagic = () => {
     x: 50,
     y: 70,
     alpha: 0.7,
+    color: '#555a61',
   });
 
   const lightOff = TweenMax.to('.light-off', 0.5, {
@@ -47,7 +53,7 @@ const initScrollMagic = () => {
     // triggerElement: "#trigger1",
     duration: '30%',
   })
-    .setTween([headerLeftText, headerRightText])
+    .setTween([headerLeftText1, headerLeftText2, headerRightText])
     .addTo(controller)
     .addIndicators({
       name: 'header',
