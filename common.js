@@ -49,6 +49,18 @@ const initScrollMagic = () => {
     alpha: 0,
   });
 
+  const titleText = TweenMax.to(
+    '.titleText1, .titleText2, .titleText3, .titleText4',
+    0.5,
+    {
+      alpha: 1,
+    }
+  );
+
+  const profileImage = TweenMax.to('.profileImageWrap', 0.5, {
+    y: -100,
+  });
+
   const mainLogoText2 = TweenMax.staggerFromTo(
     '.mainLogoText2',
     0.4,
@@ -71,25 +83,25 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     // triggerHook: 0,
-    triggerElement: ".intro",
+    triggerElement: '.intro',
     offset: '350%',
     duration: '30%',
   })
-      .setTween(section1)
-      .addTo(controller)
-      // .addIndicators({
-      //   name: 'section-1',
-      // });
+    .setTween(section1)
+    .addTo(controller);
+  // .addIndicators({
+  //   name: 'section-1',
+  // });
 
   new ScrollMagic.Scene({
     triggerHook: 0,
     duration: '30%',
   })
     .setTween([headerLeftText1, headerLeftText2, headerRightText])
-    .addTo(controller)
-    // .addIndicators({
-    //   name: 'header',
-    // });
+    .addTo(controller);
+  // .addIndicators({
+  //   name: 'header',
+  // });
 
   new ScrollMagic.Scene({
     triggerHook: 0.2,
@@ -112,10 +124,28 @@ const initScrollMagic = () => {
       mainLogoText2,
       mainLogo,
     ])
+    .addTo(controller);
+
+  new ScrollMagic.Scene({
+    // triggerHook: 0.2,
+    triggerElement: '.section-2',
+    offset: '-200%',
+    duration: '30%',
+  })
+    .setTween(titleText)
+    .addTo(controller);
+
+  new ScrollMagic.Scene({
+    // triggerHook: 0.2,
+    triggerElement: '.section-2',
+    offset: '-170%',
+    duration: '50%',
+  })
+    .setTween(profileImage)
     .addTo(controller)
-    // .addIndicators({
-    //   name: 'mainLogo',
-    // });
+    .addIndicators({
+      name: 'section-2',
+    });
 };
 
 $(document).ready(() => {
