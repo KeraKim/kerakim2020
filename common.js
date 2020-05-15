@@ -24,12 +24,12 @@ const initScrollMagic = () => {
   });
 
   const introText1 = TweenMax.to('.introText1', 0.5, {
-    y: -30,
+    y: -40,
     alpha: 1,
   });
 
   const introText2 = TweenMax.to('.introText2', 0.5, {
-    y: -30,
+    y: -40,
     alpha: 1,
   });
 
@@ -71,7 +71,10 @@ const initScrollMagic = () => {
     duration: '30%',
   })
     .setTween([headerLeftText1, headerLeftText2, headerRightText])
-    .addTo(controller);
+    .addTo(controller)
+    .addIndicators({
+      name: 'header',
+    });
 
   new ScrollMagic.Scene({
     triggerHook: 0.1,
@@ -88,7 +91,10 @@ const initScrollMagic = () => {
     // .setPin('.mainLogo')
       .setPin('.section-1')
     .setTween([lightOff, lightOn, introText1, mainLogoText1, mainLogoText2, mainLogo])
-    .addTo(controller);
+    .addTo(controller)
+    .addIndicators({
+      name: 'mainLogo',
+    });
 };
 
 $(document).ready(() => {
