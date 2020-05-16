@@ -1,20 +1,34 @@
+let browserType = '';
+
+const getBrowserType = () => {
+  const width = window.innerWidth;
+
+  if (width > 1200) {
+    browserType = 'pc';
+  } else if (width <= 1200 && width >= 768) {
+    browserType = 'tablet';
+  } else {
+    browserType = 'mobile';
+  }
+};
+
 const initScrollMagic = () => {
   const controller = new ScrollMagic.Controller();
 
   //헤더 왼쪽 문구
-  const headerLeftText1 = TweenMax.to('.leftText1', 0.5, {
+  const headerLeftText1 = TweenMax.to('.leftHeaderText1', 0.5, {
     x: '-100%',
     alpha: 0,
   });
 
   //헤더 왼쪽 로고
-  const headerLeftText2 = TweenMax.to('.leftText2', 0.5, {
+  const headerLeftText2 = TweenMax.to('.leftHeaderText2', 0.5, {
     x: '100%',
     alpha: 1,
   });
 
   //헤더 오른쪽 문구
-  const headerRightText = TweenMax.to('.rightText', 0.5, {
+  const headerRightText = TweenMax.to('.rightHeaderText', 0.5, {
     scale: 0.8,
     rotation: 90,
     x: 20,
@@ -23,15 +37,19 @@ const initScrollMagic = () => {
     color: '#555a61',
   });
 
-  const introText1 = TweenMax.to('.introText1', 0.5, {
-    y: -40,
-    alpha: 1,
-  });
-
-  const introText2 = TweenMax.to('.introText2', 0.5, {
-    y: -40,
-    alpha: 1,
-  });
+  const introText = TweenMax.staggerFromTo(
+    '.introText',
+    0.7,
+    {
+      y: 0,
+      alpha: 0,
+    },
+    {
+      alpha: 1,
+      y: -40,
+    },
+    0.2
+  );
 
   const lightOff = TweenMax.to('.light-off', 0.5, {
     alpha: 0,
@@ -45,9 +63,79 @@ const initScrollMagic = () => {
     color: '#892C2C',
   });
 
+  const mainLogoText2 = TweenMax.staggerFromTo(
+    '.mainLogoText2',
+    0.4,
+    {
+      scale: 0.85,
+    },
+    {
+      // x: browserType == 'pc' ? ()
+      x: browserType == 'pc' ? -180 : (browserType == 'tablet' ? -150 : '-27vw'),
+      backgroundColor: 'rgba(255, 212, 212)',
+      scale: 1.2,
+      rotation: 360,
+      alpha: 0.9,
+    },
+    0.3
+  );
+
+  const mainLogo = TweenMax.to('.mainLogo', 0.5, {
+    x: browserType == 'pc' ? -200 : (browserType == 'tablet' ? -50 : -20),
+  });
+
   const section1 = TweenMax.to('.section-1', 0.5, {
     alpha: 0,
   });
+
+  new ScrollMagic.Scene({
+    triggerHook: 0,
+    duration: '30%',
+  })
+    .setTween([headerLeftText1, headerLeftText2, headerRightText])
+    .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerHook: 0,
+    duration: '90%',
+  })
+    .setPin('.section-1')
+    .setTween([
+      introText,
+      lightOff,
+      lightOn,
+      mainLogoText1,
+      mainLogoText2,
+      mainLogo,
+    ])
+    .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: '.introTextWrap',
+    offset: '350%',
+    duration: '30%',
+  })
+    .setTween(section1)
+    .addTo(controller)
+};
+
+$(document).ready(() => {
+  // $('.year').text(new Date().getFullYear() - 2016);
+
+  //브라우저 타입 구분
+  getBrowserType();
+
+  //왼쪽 상단 로고 클릭시 맨 위로 이동
+  $('.leftHeaderText2').click(() => {
+    $('html, body').animate({ scrollTop: 0 }, 400);
+  });
+
+  //매직스크롤 초기화
+  initScrollMagic();
+});
+
+const initScrollMagic1 = () => {
+  const controller = new ScrollMagic.Controller();
 
   const titleText = TweenMax.to(
     '.titleText1, .titleText2, .titleText3, .titleText4',
@@ -59,26 +147,6 @@ const initScrollMagic = () => {
 
   const profileImage = TweenMax.to('.profileImageWrap', 0.5, {
     y: -100,
-  });
-
-  const mainLogoText2 = TweenMax.staggerFromTo(
-    '.mainLogoText2',
-    0.4,
-    {
-      scale: 0.85,
-    },
-    {
-      x: -180,
-      backgroundColor: 'rgba(255, 212, 212)',
-      scale: 1.2,
-      rotation: 360,
-      alpha: 0.9,
-    },
-    0.3
-  );
-
-  const mainLogo = TweenMax.to('.mainLogo', 0.5, {
-    x: -200,
   });
 
   const skill = TweenMax.staggerFromTo(
@@ -93,19 +161,18 @@ const initScrollMagic = () => {
     0.2
   );
 
-
   const closeText = TweenMax.staggerFromTo(
-      '.closeText',
-      0.7,
-      {
-        x: '-50px',
-        alpha: 0.5,
-      },
-      {
-        x: 0,
-        alpha: 1,
-      },
-      0.2
+    '.closeText',
+    0.7,
+    {
+      x: '-50px',
+      alpha: 0.5,
+    },
+    {
+      x: 0,
+      alpha: 1,
+    },
+    0.2
   );
 
   new ScrollMagic.Scene({
@@ -114,15 +181,6 @@ const initScrollMagic = () => {
     offset: '40%',
   })
     .setTween(skill)
-    .addTo(controller);
-
-  new ScrollMagic.Scene({
-    // triggerHook: 0,
-    triggerElement: '.intro',
-    offset: '350%',
-    duration: '30%',
-  })
-    .setTween(section1)
     .addTo(controller);
 
   new ScrollMagic.Scene({
@@ -182,16 +240,20 @@ const initScrollMagic = () => {
     offset: '-80%',
   })
     .setTween(closeText)
-    .addTo(controller)
-
+    .addTo(controller);
 };
 
-$(document).ready(() => {
-  $('.year').text(new Date().getFullYear() - 2016);
-
-  $('.leftText2').click(() => {
-    $('html, body').animate({ scrollTop: 0 }, 400);
-  });
-
-  initScrollMagic();
-});
+// $(document).ready(() => {
+//
+//   getBrowserType();
+//   console.log(browserType)
+//
+//   $('.year').text(new Date().getFullYear() - 2016);
+//
+//
+//   $('.leftText2').click(() => {
+//     $('html, body').animate({ scrollTop: 0 }, 400);
+//   });
+//
+//   initScrollMagic();
+// });
