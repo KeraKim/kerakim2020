@@ -81,6 +81,29 @@ const initScrollMagic = () => {
     x: -200,
   });
 
+  const skill = TweenMax.staggerFromTo(
+    '.skill',
+    0.7,
+    {
+      y: '45px',
+    },
+    {
+      y: 0,
+    },
+    0.2
+  );
+  new ScrollMagic.Scene({
+    triggerElement: '.section-3',
+    duration: '50%',
+    offset: '40%',
+  })
+    .setTween(skill)
+    .addTo(controller)
+  .addIndicators({
+    name: 'section-1',
+  });
+
+
   new ScrollMagic.Scene({
     // triggerHook: 0,
     triggerElement: '.intro',
@@ -142,12 +165,11 @@ const initScrollMagic = () => {
     duration: '50%',
   })
     .setTween(profileImage)
-    .addTo(controller)
+    .addTo(controller);
 };
 
 $(document).ready(() => {
-
-  $('.year').text(new Date().getFullYear() - 2016)
+  $('.year').text(new Date().getFullYear() - 2016);
 
   initScrollMagic();
 });
