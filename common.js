@@ -17,8 +17,8 @@ const initScrollMagic = () => {
   const headerRightText = TweenMax.to('.rightText', 0.5, {
     scale: 0.8,
     rotation: 90,
-    x: 50,
-    y: 30,
+    x: 20,
+    y: 10,
     alpha: 0.7,
     color: '#555a61',
   });
@@ -92,17 +92,29 @@ const initScrollMagic = () => {
     },
     0.2
   );
+
+
+  const closeText = TweenMax.staggerFromTo(
+      '.closeText',
+      0.7,
+      {
+        x: '-50px',
+        alpha: 0.5,
+      },
+      {
+        x: 0,
+        alpha: 1,
+      },
+      0.2
+  );
+
   new ScrollMagic.Scene({
     triggerElement: '.section-3',
     duration: '50%',
     offset: '40%',
   })
     .setTween(skill)
-    .addTo(controller)
-  .addIndicators({
-    name: 'section-1',
-  });
-
+    .addTo(controller);
 
   new ScrollMagic.Scene({
     // triggerHook: 0,
@@ -112,9 +124,6 @@ const initScrollMagic = () => {
   })
     .setTween(section1)
     .addTo(controller);
-  // .addIndicators({
-  //   name: 'section-1',
-  // });
 
   new ScrollMagic.Scene({
     triggerHook: 0,
@@ -166,10 +175,23 @@ const initScrollMagic = () => {
   })
     .setTween(profileImage)
     .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: '.section-4',
+    duration: '30%',
+    offset: '-80%',
+  })
+    .setTween(closeText)
+    .addTo(controller)
+
 };
 
 $(document).ready(() => {
   $('.year').text(new Date().getFullYear() - 2016);
+
+  $('.leftText2').click(() => {
+    $('html, body').animate({ scrollTop: 0 }, 400);
+  });
 
   initScrollMagic();
 });
