@@ -153,8 +153,8 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     triggerElement: '.introTextWrap',
-    offset: '350%',
-    duration: '30%',
+    offset: '410%',
+    duration: '20%',
   })
     .setTween(section1)
     .addTo(controller);

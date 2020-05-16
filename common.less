@@ -371,7 +371,7 @@ img {
 
   .section-2 {
     width: 100%;
-    background-color: #fff9f0;
+    background-color: white;
     padding:  0px 250px 150px 250px;
     box-sizing: border-box;
 
@@ -383,6 +383,7 @@ img {
         font-size: 42px;
         line-height: 72px;
         padding-top: 50px;
+        color: #242424;
         font-family: NanumBarunGothic;
 
         & > div {
@@ -417,6 +418,7 @@ img {
       font-size: 19px;
       line-height: 40px;
       font-family: NanumBarunGothic;
+      color: #242424;
     }
   }
 
@@ -496,42 +498,51 @@ img {
 
   .section-3 {
     width: 100%;
-    background: rgb(255,245,242);
-    background: linear-gradient(0deg, rgba(255,245,242,1) 0%, rgba(251,247,244,0.9462835451977402) 100%);
+    background-color: #FCF2E8;
     height: 1400px;
     padding: 150px 250px;
     box-sizing: border-box;
-    display: flex;
+    //display: flex;
 
     .title {
 
       & > div {
-        writing-mode: tb-rl;
-        -ms-writing-mode: tb-rl;
-        -webkit-writing-mode: tb-rl;
-        font-size: 24px;
-        color: #322f46;
-        opacity: 0.7;
+        width: 600px;
+        font-size: 36px;
+        color: #242424;
+        opacity: 0.8;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
       }
 
-      & > div:nth-child(2) {
-        margin-left: 30px;
-        margin-top: -90px;
+      .border1 {
+        width: 120%;
+        height: 80px;
+        border: 1px solid #2b1c45;
+        position: absolute;
+        left: 0px;
+        top: -26px;
       }
 
-      & > div:nth-child(3) {
-        margin-left: 60px;
-        margin-top: -40px;
+      .border2 {
+        width: 120%;
+        height: 80px;
+        border: 1px solid #2b1c45;
+        position: absolute;
+        right: 0px;
+        top: -10px;
       }
     }
 
     .skills {
       width: calc(100% - 90px);
-      margin-top: 150px;
+      margin-top: 90px;
       position: relative;
 
       .skill {
         position: absolute;
+        text-align: center;
       }
 
       .skill-1 {
@@ -541,12 +552,12 @@ img {
 
       .skill-2 {
         top: 70px;
-        left: 40%;
+        right: 35%;
       }
 
       .skill-3 {
         top: 50px;
-        right: 8%;
+        right: 0%;
       }
 
       .skill-4 {
@@ -556,7 +567,7 @@ img {
 
       .skill-5 {
         top: 250px;
-        right: 18%;
+        right: 14%;
       }
 
       .skill-6 {
@@ -566,7 +577,7 @@ img {
 
       .skill-7 {
         top: 460px;
-        right: 30%;
+        right: 2%;
       }
 
       .skill-8 {
@@ -575,7 +586,7 @@ img {
       }
 
       .skill-9 {
-        top: 580px;
+        top: 640px;
         right: 14%;
       }
 
@@ -584,7 +595,7 @@ img {
         left: 4%;
       }
       .skill-11 {
-        top: 700px;
+        top: 740px;
         right: 5%;
       }
 
@@ -594,8 +605,8 @@ img {
       }
 
       .skill-13 {
-        top: 790px;
-        left: 23%;
+        top: 810px;
+        left: 18%;
       }
 
     }
@@ -609,6 +620,7 @@ img {
         .skills {
 
           .skill {
+            text-align: center;
 
             img {
               width: 70%;
@@ -627,7 +639,7 @@ img {
 
           .skill-3 {
             top: 50px;
-            right: 8%;
+            right: 0%;
           }
 
           .skill-4 {
@@ -637,7 +649,7 @@ img {
 
           .skill-5 {
             top: 250px;
-            right: 18%;
+            right: 14%;
           }
 
           .skill-6 {
@@ -647,7 +659,7 @@ img {
 
           .skill-7 {
             top: 460px;
-            right: 30%;
+            right: 5%;
           }
 
           .skill-8 {
@@ -691,24 +703,32 @@ img {
         display: block;
 
         .title {
-          text-align: center;
-
           & > div {
-            writing-mode: initial;
-            -ms-writing-mode: initial;
-            -webkit-writing-mode: initial;
+            width: 210px;
             font-size: 22px;
             color: #322f46;
-            opacity: 0.7;
-            display: inline-block;
+            opacity: 0.8;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
           }
 
-          & > div:nth-child(2) {
-            margin: 0;
+          .border1 {
+            width: 110%;
+            height: 85px;
+            border: 1px solid #2b1c45;
+            position: absolute;
+            left: 0px;
+            top: -26px;
           }
 
-          & > div:nth-child(3) {
-            margin: 0;
+          .border2 {
+            width: 110%;
+            height: 85px;
+            border: 1px solid #2b1c45;
+            position: absolute;
+            right: 0px;
+            top: -10px;
           }
         }
 
@@ -720,28 +740,36 @@ img {
             text-align: center;
 
             img {
-              width: 50% !important;
+              width: 50%;
             }
           }
 
           .skill-1 {
             top: 10px;
-            left: 1%;
+            left: 0%;
           }
 
           .skill-2 {
             top: 70px;
-            left: 40%;
+            right: 20%;
+
+            img {
+              width: 70%;
+            }
           }
 
           .skill-3 {
             top: 160px;
             right: 3%;
+
+            img {
+              width: 40% !important;
+            }
           }
 
           .skill-4 {
             top: 220px;
-            left: 1%;
+            left: 0%;
           }
 
           .skill-5 {
@@ -786,6 +814,10 @@ img {
           .skill-13 {
             top: 820px;
             right: 1%;
+
+            img {
+              width: 35% !important;
+            }
           }
         }
       }
@@ -794,8 +826,7 @@ img {
 
   .section-4 {
     width: 100%;
-    background: rgb(255,252,239);
-    background: linear-gradient(0deg, rgba(255,252,239,1) 0%, rgba(255,241,233,0.9406338276836158) 100%);
+    background-color: white;
     padding: 150px 250px;
     box-sizing: border-box;
 
@@ -882,8 +913,7 @@ img {
 
       .section-4 {
         width: 100%;
-        background: rgb(255,252,239);
-        background: linear-gradient(0deg, rgba(255,252,239,1) 0%, rgba(255,241,233,0.9406338276836158) 100%);
+        background-color: white;
         padding: 80px 20px;
         box-sizing: border-box;
 
@@ -932,8 +962,7 @@ img {
 
   .section-5 {
     width: 100%;
-    background: rgb(255,255,250);
-    background: linear-gradient(0deg, rgba(255,255,250,0.8937047101449276) 0%, rgba(255,255,250,0.8966032608695652) 100%);
+    background-color: #FCF2E8;
     padding: 150px 250px;
     box-sizing: border-box;
     text-align: center;
