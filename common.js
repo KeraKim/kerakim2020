@@ -1,5 +1,6 @@
 let browserType = '';
 
+//브라우저 타입 구분
 const getBrowserType = () => {
   const width = window.innerWidth;
 
@@ -37,6 +38,7 @@ const initScrollMagic = () => {
     color: '#555a61',
   });
 
+  //인트로 화면 글자
   const introText = TweenMax.staggerFromTo(
     '.introText',
     0.7,
@@ -51,18 +53,22 @@ const initScrollMagic = () => {
     0.2
   );
 
+  //꺼진 전구 이미지
   const lightOff = TweenMax.to('.light-off', 0.5, {
     alpha: 0,
   });
 
+  //켜진 전구 이미지
   const lightOn = TweenMax.to('.light-on', 0.5, {
     alpha: 1,
   });
 
+  //메인 로고 텍스트1
   const mainLogoText1 = TweenMax.to('.mainLogoText1', 0.5, {
     color: '#892C2C',
   });
 
+  //매인 로고 텍스트2
   const mainLogoText2 = TweenMax.staggerFromTo(
     '.mainLogoText2',
     0.4,
@@ -79,14 +85,17 @@ const initScrollMagic = () => {
     0.3
   );
 
+  //메인로고 이동
   const mainLogo = TweenMax.to('.mainLogo', 0.5, {
     x: browserType == 'pc' ? -200 : browserType == 'tablet' ? -50 : -20,
   });
 
+  //section-1 고정
   const section1 = TweenMax.to('.section-1', 0.5, {
     alpha: 0,
   });
 
+  //section-2 타이틀
   const titleText = TweenMax.staggerFromTo(
     '.titleText1, .titleText2, .titleText3, .titleText4',
     0.4,
@@ -99,6 +108,12 @@ const initScrollMagic = () => {
     0.3
   );
 
+  //프로필 이미지 사진
+  const profileImage = TweenMax.to('.profileImageWrap', 0.5, {
+    y: -100,
+  });
+
+  //보유 기술
   const skill = TweenMax.staggerFromTo(
     '.skill',
     0.7,
@@ -111,10 +126,7 @@ const initScrollMagic = () => {
     0.2
   );
 
-  const profileImage = TweenMax.to('.profileImageWrap', 0.5, {
-    y: -100,
-  });
-
+  //마지막 소개
   const closeText = TweenMax.staggerFromTo(
     '.closeText',
     0.7,
