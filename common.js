@@ -113,19 +113,6 @@ const initScrollMagic = () => {
     y: -100,
   });
 
-  //보유 기술
-  const skill = TweenMax.staggerFromTo(
-    '.skill',
-    0.7,
-    {
-      y: '45px',
-    },
-    {
-      y: 0,
-    },
-    0.2
-  );
-
   //마지막 소개
   const closeText = TweenMax.staggerFromTo(
     '.closeText',
@@ -188,15 +175,7 @@ const initScrollMagic = () => {
     .addTo(controller);
 
   new ScrollMagic.Scene({
-    triggerElement: '.section-3',
-    duration: '80%',
-    offset: '180%',
-  })
-    .setTween(skill)
-    .addTo(controller);
-
-  new ScrollMagic.Scene({
-    triggerElement: '.section-4',
+    triggerElement: '.section-5',
     duration: '30%',
     offset:
       browserType == 'pc' ? '-80%' : browserType == 'tablet' ? '-80%' : '40%',
