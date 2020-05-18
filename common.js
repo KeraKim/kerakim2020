@@ -1,5 +1,10 @@
 let browserType = '';
 
+//익스플로러 체크
+const ieCheck = () => {
+
+}
+
 //브라우저 타입 구분
 const getBrowserType = () => {
   const width = window.innerWidth;
@@ -255,6 +260,9 @@ const initScrollMagic = () => {
 };
 
 $(document).ready(() => {
+
+  ieCheck()
+
   $('.year').text(new Date().getFullYear() - 2016);
 
   //브라우저 타입 구분
