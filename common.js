@@ -200,7 +200,7 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     triggerElement: '.introTextWrap',
-    offset: '410%',
+    offset: '430%',
     duration: '20%',
   })
     .setTween(section1)
@@ -224,7 +224,7 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     triggerElement: '.contentImage1',
-    offset: '-200%',
+    offset: '-130%',
     duration: '20%',
   })
       .setTween(contentImage1)
@@ -232,7 +232,7 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     triggerElement: '.contentImage2',
-    offset: '-200%',
+    offset: '-130%',
     duration: '20%',
   })
       .setTween(contentImage2)
@@ -240,7 +240,7 @@ const initScrollMagic = () => {
 
   new ScrollMagic.Scene({
     triggerElement: '.contentImage3',
-    offset: '-200%',
+    offset: '-130%',
     duration: '20%',
   })
       .setTween(contentImage3)
