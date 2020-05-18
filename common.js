@@ -113,10 +113,53 @@ const initScrollMagic = () => {
     y: -100,
   });
 
+  //section-3 이미지
+  const contentImage1 = TweenMax.staggerFromTo(
+      '.contentImage1',
+      0.3,
+      {
+        x: 30,
+        alpha: 0.7,
+      },
+      {
+        alpha: 1,
+        x: 0,
+      },
+      0.4
+  );
+
+  const contentImage2 = TweenMax.staggerFromTo(
+      '.contentImage2',
+      0.3,
+      {
+        x: 20,
+        alpha: 0.7,
+      },
+      {
+        x: 0,
+        alpha: 1,
+      },
+      0.4
+  );
+
+  const contentImage3 = TweenMax.staggerFromTo(
+      '.contentImage3',
+      0.3,
+      {
+        x: 30,
+        alpha: 0.7,
+      },
+      {
+        alpha: 1,
+        x: 0,
+      },
+      0.4
+  );
+
   //마지막 소개
   const closeText = TweenMax.staggerFromTo(
     '.closeText',
-    0.7,
+    0.3,
     {
       x: '-50px',
       alpha: 0.5,
@@ -125,7 +168,7 @@ const initScrollMagic = () => {
       x: 0,
       alpha: 1,
     },
-    0.2
+    0.4
   );
 
   new ScrollMagic.Scene({
@@ -173,6 +216,30 @@ const initScrollMagic = () => {
   })
     .setTween(profileImage)
     .addTo(controller);
+
+  new ScrollMagic.Scene({
+    triggerElement: '.contentImage1',
+    offset: '-200%',
+    duration: '20%',
+  })
+      .setTween(contentImage1)
+      .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '.contentImage2',
+    offset: '-200%',
+    duration: '20%',
+  })
+      .setTween(contentImage2)
+      .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '.contentImage3',
+    offset: '-200%',
+    duration: '20%',
+  })
+      .setTween(contentImage3)
+      .addTo(controller)
 
   new ScrollMagic.Scene({
     triggerElement: '.section-5',
